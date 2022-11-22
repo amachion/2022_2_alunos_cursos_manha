@@ -140,7 +140,11 @@ public class CursosTela extends javax.swing.JFrame {
     }//GEN-LAST:event_cursosComboBoxActionPerformed
 
     private void mostrarAlunosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarAlunosButtonActionPerformed
-        MostraAlunosCursoTela ac = new MostraAlunosCursoTela();
+        int idCurso = Integer.parseInt(idCursoTextField.getText());
+        String nomeCurso = nomeCursoTextField.getText();
+        String tipoCurso = tipoCursoTextField.getText();
+        Curso curso = new Curso(idCurso, nomeCurso, tipoCurso);
+        MostraAlunosCursoTela ac = new MostraAlunosCursoTela(curso);
         ac.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_mostrarAlunosButtonActionPerformed

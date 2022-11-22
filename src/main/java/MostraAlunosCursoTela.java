@@ -13,9 +13,12 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
     /**
      * Creates new form MostraAlunosCursoTela
      */
-    public MostraAlunosCursoTela() {
+    public MostraAlunosCursoTela(Curso curso) {
         super("Alunos por Curso");
         initComponents();
+        idCursoTextField.setText(Integer.toString(curso.getId()));
+        nomeCursoTextField.setText(curso.getNome());
+        tipoCursoTextField.setText(curso.getTipo());
         setLocationRelativeTo(null);
     }
 
@@ -37,9 +40,14 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        idCursoTextField.setEditable(false);
         idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("id curso"));
 
+        nomeCursoTextField.setEditable(false);
         nomeCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("nome curso"));
+
+        tipoCursoTextField.setEditable(false);
+        tipoCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo do curso"));
 
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,12 +72,14 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
                 .addComponent(idCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(alunosCursoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(tipoCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                        .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(250, 250, 250)
+                        .addComponent(sairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(alunosCursoPanelLayout.createSequentialGroup()
+                        .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(tipoCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         alunosCursoPanelLayout.setVerticalGroup(
@@ -147,7 +157,7 @@ public class MostraAlunosCursoTela extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MostraAlunosCursoTela().setVisible(true);
+                //new MostraAlunosCursoTela(Curso curso).setVisible(true);
             }
         });
     }
